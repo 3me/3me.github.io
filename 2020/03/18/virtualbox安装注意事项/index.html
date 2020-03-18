@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>virtualbox安装注意事项 | 好好学习，多多进步。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="others">
+    <meta name="description" content="Virtualbox安装注意事项[TOC] 概要​    这篇文章记录自己安装虚拟机过程中的一些心得，以做备忘，避免以后在使用过程中犯同样的错误，同时希望能够对读者有所帮助。 ​    主要介绍下面的内容： * 虚拟机的选择 * virtualbox网络模式的选择和设置，满足我们host和virtual主机互联互通，同时虚拟机能够连接外网的需求。 * virtualbox增强模式的安装虚拟机的选择">
+<meta property="og:type" content="article">
+<meta property="og:title" content="virtualbox安装注意事项">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
+<meta property="og:site_name" content="好好学习，多多进步。">
+<meta property="og:description" content="Virtualbox安装注意事项[TOC] 概要​    这篇文章记录自己安装虚拟机过程中的一些心得，以做备忘，避免以后在使用过程中犯同样的错误，同时希望能够对读者有所帮助。 ​    主要介绍下面的内容： * 虚拟机的选择 * virtualbox网络模式的选择和设置，满足我们host和virtual主机互联互通，同时虚拟机能够连接外网的需求。 * virtualbox增强模式的安装虚拟机的选择">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/4.png">
+<meta property="article:published_time" content="2020-03-18T07:42:36.000Z">
+<meta property="article:modified_time" content="2020-03-18T08:10:30.715Z">
+<meta property="article:author" content="3me">
+<meta property="article:tag" content="others">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/1.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">3me</h5>
+          <a href="mailto:2793486305@qq.com" title="2793486305@qq.com" class="mail">2793486305@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/3me" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.google.jp/" target="_blank" >
+                <i class="icon icon-lg icon-google"></i>
+                Google
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                about
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">virtualbox安装注意事项</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">virtualbox安装注意事项</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-18T07:42:36.000Z" itemprop="datePublished" class="page-time">
+  2020-03-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Virtualbox安装注意事项"><span class="post-toc-number">1.</span> <span class="post-toc-text">Virtualbox安装注意事项</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概要"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">概要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚拟机的选择"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">虚拟机的选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vmware-or-virtualbox"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">vmware or virtualbox</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#镜像的选择"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">镜像的选择</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#virtualbox网络模式的选择"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">virtualbox网络模式的选择</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚拟机增强模式安装"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">虚拟机增强模式安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考连接"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">参考连接</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-virtualbox安装注意事项"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">virtualbox安装注意事项</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-18 07:42:36" datetime="2020-03-18T07:42:36.000Z"  itemprop="datePublished">2020-03-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/others/">others</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Virtualbox安装注意事项"><a href="#Virtualbox安装注意事项" class="headerlink" title="Virtualbox安装注意事项"></a>Virtualbox安装注意事项</h1><p>[TOC]</p>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>​    这篇文章记录自己安装虚拟机过程中的一些心得，以做备忘，避免以后在使用过程中犯同样的错误，同时希望能够对读者有所帮助。</p>
+<p>​    主要介绍下面的内容：</p>
+<pre><code>* 虚拟机的选择
+* virtualbox网络模式的选择和设置，满足我们host和virtual主机互联互通，同时虚拟机能够连接外网的需求。
+* virtualbox增强模式的安装</code></pre><h2 id="虚拟机的选择"><a href="#虚拟机的选择" class="headerlink" title="虚拟机的选择"></a>虚拟机的选择</h2><h3 id="vmware-or-virtualbox"><a href="#vmware-or-virtualbox" class="headerlink" title="vmware or virtualbox"></a>vmware or virtualbox</h3><p>​    一定不要用vmware， 它主要有下面的缺点：</p>
+<ul>
+<li>吃内存：以我实际的使用体验，8 G内存电脑开vmware 的同时多开几个浏览器页面，基本上电脑就已经点不动了。</li>
+<li>不稳定：vmware经常各种莫名奇妙的问题，比如软件按键点击过于频繁的话，会出现概率性crash。同时对突然断电等问题， 会锁死虚拟文件系统，也会概率性的引起虚拟机不能启动的问题。虽然这些问题是概率性的，但当你着急使用的时候它却罢工，确实是意见让人很崩溃的事情。</li>
+</ul>
+<p>​    相比较而言, virtualbox 开源，小巧，稳定， 内存占用少，后面的网络配置也简单便捷。所以选择virtualbox.</p>
+<h3 id="镜像的选择"><a href="#镜像的选择" class="headerlink" title="镜像的选择"></a>镜像的选择</h3><p>​    如果使用ubuntu的话，对于开发者而言，一定要选择<a href="https://cn.ubuntu.com/download" title="ubuntu server down">服务器版本</a>. ubuntu 桌面版这些年在用户易用性方面做了很多工作，有很明显向 linux 新手系统进化的趋势。但对开发越来越不友好，一些常用的软件命令如 vim,  ssh server , ifconfig 等都不会默认安装。因此推荐一步到位，直接安装 ubuntu 服务器版本。</p>
+<h2 id="virtualbox网络模式的选择"><a href="#virtualbox网络模式的选择" class="headerlink" title="virtualbox网络模式的选择"></a>virtualbox网络模式的选择</h2><p>​    和大多数虚拟机一样，virtualbox 支持常用的 nat, host, 桥接等网络连接方式。一般选择桥接模式即可满足我们虚拟机和host主机互连，虚拟访问外网的需求。</p>
+<p>​    桥接模式下，VMware虚拟出来的操作系统就像是局域网中的一独立的主机，它可以访问该类网段内任何一台机器。</p>
+<p>桥接环境设置需要注意的是 : 在桥接的模式下虚拟机必须与物理机，虚拟网卡需要处于同一网段，(举个例子,物理机IP:192.168.1.2，虚拟机IP:192.168.1.3, 虚拟网卡IP:192.168.1.5)这样虚拟系统才能和真实主机进行通信。</p>
+<p>具体配置如下：</p>
+<ol>
+<li>首先，设置网络模式为桥接模式 ：</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ol start="2">
+<li>下一步，管理 -&gt; 主机网络管理器设置虚拟网卡 IP 地址:</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>配置成功后，可以看到配置已经下发到虚拟网卡:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ol start="3">
+<li>最后设置虚拟机 IP , 注意 : <strong>主机 IP， 虚拟机 IP， 虚拟机网卡 IP，需要设置成同网段的三个不同 IP</strong></li>
+</ol>
+<p>​    Ubuntu 从 17.10 开始，已放弃在 /etc/network/interfaces ⾥固定IP的配置，⽽是改成 netplan ⽅式，配置⽂件是：/etc/netplan/50-cloud-init.yaml。 具体配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@zfk:/etc/netplan<span class="comment"># cat 50-cloud-init.yaml </span></span><br><span class="line"><span class="comment"># This file is generated from information provided by the datasource.  Changes</span></span><br><span class="line"><span class="comment"># to it will not persist across an instance reboot.  To disable cloud-init's</span></span><br><span class="line"><span class="comment"># network configuration capabilities, write a file</span></span><br><span class="line"><span class="comment"># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:</span></span><br><span class="line"><span class="comment"># network: &#123;config: disabled&#125;</span></span><br><span class="line">network:</span><br><span class="line">    ethernets:</span><br><span class="line">        enp0s3:</span><br><span class="line">            dhcp4: no</span><br><span class="line">            addresses: [10.71.1.142/24]</span><br><span class="line">            gateway4: 10.71.1.254</span><br><span class="line">            nameservers:</span><br><span class="line">                    addresses: [8.8.8.8]</span><br><span class="line">    version: 2</span><br><span class="line">root@zfk:/etc/netplan<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="虚拟机增强模式安装"><a href="#虚拟机增强模式安装" class="headerlink" title="虚拟机增强模式安装"></a>虚拟机增强模式安装</h2><p>当需要虚拟机全屏显示，和主机文件夹共享功能的时候，就需要安装虚拟机的增强模式，具体方法如下：</p>
+<ol>
+<li><p>设备-》安装增强功能。</p>
+</li>
+<li><p>在虚拟机的 /media/cdrom 中发现 VBoxLinuxAdditions.run，然后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./VBoxLinuxAdditions.run</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>当然，成功是必然的，失败也是不可避免的，如果遇到如下的错误：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>也没有关系。仔细看看错误原因，是由于增强模式的镜像没有成功从host挂载到虚拟机相应目录，导致后续安装无法进行。具体结局步骤如下： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">I struggled with this <span class="keyword">for</span> about 2 hours on a Windows 7 host running Ubuntu 13.10 Server guest. In the end, I just copied over the VBoxGuestAdditions.iso to the guest (using WinSCP), mounted it, and <span class="keyword">then</span> ran VBoxLinuxAdditions.run from the guest.</span><br><span class="line"></span><br><span class="line">Here are the steps I took:</span><br><span class="line"></span><br><span class="line">Locate VBoxGuestAdditions.iso on your host (<span class="keyword">in</span> my <span class="keyword">case</span>, C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso).</span><br><span class="line"></span><br><span class="line">Copy VBoxGuestAdditions.iso to your guest (<span class="keyword">in</span> my <span class="keyword">case</span>, I used WinSCP).</span><br><span class="line"></span><br><span class="line">In the terminal <span class="keyword">for</span> the guest mount the ISO using the following:</span><br><span class="line"></span><br><span class="line">sudo mkdir /media/GuestAdditionsISO</span><br><span class="line"></span><br><span class="line">sudo mount -o loop path/to/VBoxGuestAdditions.iso /media/GuestAdditionsISO</span><br><span class="line"></span><br><span class="line">At this point you<span class="string">'ll probably get a message that the ISO has been mounted as READ-ONLY. That'</span>s perfectly fine. If you change into the directory /media/GuestAdditionsISO you should see VBoxLinuxAdditions.run and it should be executable:</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /media/GuestAdditionsISO</span><br><span class="line"></span><br><span class="line">ls -l</span><br><span class="line"></span><br><span class="line">Now just run VBoxLinuxAdditions.run:</span><br><span class="line"></span><br><span class="line">sudo ./VBoxLinuxAdditions.run</span><br><span class="line"></span><br><span class="line">You also have the option of extracting VBoxGuestAdditions.iso <span class="keyword">in</span> Windows (or whatever host OS you<span class="string">'re using) and then SCP'</span>ing (or WinSCP<span class="string">'ing) it over to the Ubuntu guest, and then just running: sudo ./VBoxLinuxAdditions.run</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Better doing what I have listed above instead of wasting time and putting faith in methods that may or may not work on your particular configuration.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Hope this helps.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><ol>
+<li><a href="https://blog.51cto.com/hexiaoshuai/2462800?source=dra">Ubuntu 18.04 server的安装和使用</a></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-03-18T08:10:30.715Z" itemprop="dateUpdated">2020-03-18 08:10:30</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" target="_blank" rel="external">http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/touxiang.jpg" alt="3me">
+            3me
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/" rel="tag">others</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/&title=《virtualbox安装注意事项》 — 好好学习，多多进步。&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/&title=《virtualbox安装注意事项》 — 好好学习，多多进步。&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《virtualbox安装注意事项》 — 好好学习，多多进步。&url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/18/name/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">name</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/03/17/five/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">five post</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '81d10e725c08ea26c5f8',
+          clientSecret: '4eb7d2523186b4051675112f9a6b00011d1558ad',
+          repo: '3me.github.io',
+          owner: '3me',
+          admin: ['3me'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        yummy~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>3me &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/&title=《virtualbox安装注意事项》 — 好好学习，多多进步。&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/&title=《virtualbox安装注意事项》 — 好好学习，多多进步。&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《virtualbox安装注意事项》 — 好好学习，多多进步。&url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" alt="微信分享二维码">
+</div>
+
+
+
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'take a brak and we will be back.';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Welcome!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
