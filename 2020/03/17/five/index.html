@@ -304,7 +304,7 @@
 <p>Header|Column1|Column2</p>
 <p>-|-|-</p>
 <p>Row1|1|2</p>
-<p><a href="mailto:&#x7a;&#104;&#97;&#x6e;&#103;&#x66;&#101;&#110;&#x67;&#107;&#117;&#110;&#x31;&#x32;&#x33;&#64;&#x31;&#x32;&#54;&#x2e;&#99;&#x6f;&#x6d;">&#x7a;&#104;&#97;&#x6e;&#103;&#x66;&#101;&#110;&#x67;&#107;&#117;&#110;&#x31;&#x32;&#x33;&#64;&#x31;&#x32;&#54;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<p><a href="mailto:&#122;&#x68;&#x61;&#110;&#x67;&#102;&#101;&#x6e;&#x67;&#x6b;&#117;&#x6e;&#49;&#50;&#51;&#64;&#49;&#x32;&#54;&#x2e;&#99;&#111;&#x6d;">&#122;&#x68;&#x61;&#110;&#x67;&#102;&#101;&#x6e;&#x67;&#x6b;&#117;&#x6e;&#49;&#50;&#51;&#64;&#49;&#x32;&#54;&#x2e;&#99;&#111;&#x6d;</a></p>
 <p><del>shanchuxian</del></p>
 <p>==gaoliang==</p>
 <p>==text==</p>
@@ -413,7 +413,7 @@
 <center>wenzi</center>
 
 <p><a href="https://blog.csdn.net/baidu_35942636/article/details/80804490">zheshigyeilianjie</a></p>
-<p><a href="mailto:&#x7a;&#104;&#x61;&#x6e;&#103;&#102;&#101;&#110;&#103;&#x6b;&#117;&#x6e;&#49;&#50;&#x33;&#64;&#x31;&#50;&#54;&#46;&#x63;&#111;&#109;">&#x7a;&#104;&#x61;&#x6e;&#103;&#102;&#101;&#110;&#103;&#x6b;&#117;&#x6e;&#49;&#50;&#x33;&#64;&#x31;&#50;&#54;&#46;&#x63;&#111;&#109;</a></p>
+<p><a href="mailto:&#x7a;&#x68;&#x61;&#x6e;&#x67;&#x66;&#x65;&#110;&#103;&#x6b;&#x75;&#x6e;&#49;&#50;&#51;&#x40;&#49;&#x32;&#54;&#x2e;&#99;&#111;&#109;">&#x7a;&#x68;&#x61;&#x6e;&#x67;&#x66;&#x65;&#110;&#103;&#x6b;&#x75;&#x6e;&#49;&#50;&#51;&#x40;&#49;&#x32;&#54;&#x2e;&#99;&#111;&#109;</a></p>
 <p>uxiahuxianu</p>
 <p>/uxiahuxian/u</p>
 <p>\uxiahuaxian\u</p>
@@ -703,6 +703,30 @@ node</pre>
 
 
 
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '81d10e725c08ea26c5f8',
+          clientSecret: '4eb7d2523186b4051675112f9a6b00011d1558ad',
+          repo: '3me.github.io',
+          owner: '3me',
+          admin: ['3me'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
 
 
 
