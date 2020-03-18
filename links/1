@@ -1,0 +1,13 @@
+---
+title: links
+date: 2020-03-18 02:51:30
+layout: links
+type: links
+links_icon: link  # 链接对应的Fontawesome图标名称
+links_title: Links # 设置链接标题，可以自定义
+links_layout: block   # 图标布局方式，有inline和block两种
+#links_layout: inline
+links:
+Baidu: https://www.baidu.com/
+Github: https://github.com/
+---
