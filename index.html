@@ -17,6 +17,8 @@
     <title>好好学习，多多进步。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content="">
     <meta property="og:type" content="website">
@@ -27,8 +29,8 @@
 <meta property="article:author" content="3me">
 <meta name="twitter:card" content="summary">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -44,19 +46,68 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/touxiang.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">3me</h5>
-          <a href="mailto:undefined" class="mail">
+          <a href="mailto:2793486305@qq.com" title="2793486305@qq.com" class="mail">2793486305@qq.com</a>
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/3me" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.google.jp/" target="_blank" >
+                <i class="icon icon-lg icon-google"></i>
+                Google
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                about
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -71,6 +122,20 @@
         </a>
         <div class="flex-col header-title ellipsis">好好学习，多多进步。</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -211,7 +276,10 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        hexo博客搭建trickstricks 之文章插入图...
+        hexo博客搭建trickstricks 之文章插入图片​    当我们写 markdown 文章的时候，为了后期可移植性考虑，我们希望插入图片的时候用相对路径。那么当这篇文章需要发布到博客时，该怎么做呢？很简单，只需要在hexo 的[^1]配置文件 _config.yml 做如下设置。
+1post_asset_folder: true
+
+​        将 _config.yml 文件中...
     
 
         <a href="/2020/03/18/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAtrcks/" class="post-more waves-effect waves-button">
@@ -259,7 +327,11 @@
 
     
         [TOC]
-Linux 下快速跳转到指定目录目的​  ...
+Linux 下快速跳转到指定目录目的​    实现在 Linux 下目录的快速跳转，达到节约时间的目的 。
+思路
+利用环境变量存放需要跳转的多层目录，blog=/root/work/blog/myblog/source/_posts ，当需要跳转时候，执行 cd $blog 即可达到目的。
+
+更进一步，可以利用 alias 命令，将上面的 cd $blog 用其它更简单的命令代替...
     
 
         <a href="/2020/03/18/linux%E5%BF%AB%E9%80%9F%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95/" class="post-more waves-effect waves-button">
@@ -307,6 +379,12 @@ Linux 下快速跳转到指定目录目的​  ...
 
     
         
+                
+                    
+                    
+                
+                
+            
 
     
 
@@ -348,7 +426,11 @@ Linux 下快速跳转到指定目录目的​  ...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Virtualbox安装注意事项概要​    这篇文章...
+        Virtualbox安装注意事项概要​    这篇文章记录自己安装虚拟机过程中的一些心得，以做备忘，避免以后在使用过程中犯同样的错误，同时希望能够对读者有所帮助。
+​    主要介绍下面的内容：
+* 虚拟机的选择
+* virtualbox网络模式的选择和设置，满足我们host和virtual主机互联互通，同时虚拟机能够连接外网的需求。
+* virtualbox增强模式的安装虚拟机的选择vmw...
     
 
         <a href="/2020/03/18/virtualbox%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-more waves-effect waves-button">
@@ -399,7 +481,42 @@ Linux 下快速跳转到指定目录目的​  ...
 
 
 zhe li shi biaoge
-shi zh...
+shi zhe yang me
+zhe ge ne
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is an H2This is an H2This is an H3This is an H4#######  tHIS IS an h
+
+This is an blockquote
+wode &lt;
+
+
+
+
+thi is 
+
+wo de z...
     
 
         <a href="/2020/03/17/flower/" class="post-more waves-effect waves-button">
@@ -483,7 +600,10 @@ shi zh...
     
         graph TD;
     A-->B;
-    A-...
+    A-->C;
+    B-->D;
+    C-->D;
+
     
 
         <a href="/2020/03/17/second/" class="post-more waves-effect waves-button">
@@ -510,6 +630,15 @@ shi zh...
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -531,6 +660,52 @@ shi zh...
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/&title=好好学习，多多进步。&pic=http://yoursite.com/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/&title=好好学习，多多进步。&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=好好学习，多多进步。&url=http://yoursite.com/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/" alt="微信分享二维码">
+</div>
+
+
+
+
   <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
   <script>
     if (window.mermaid) {
@@ -541,19 +716,58 @@ shi zh...
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'take a brak and we will be back.';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Welcome!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 
