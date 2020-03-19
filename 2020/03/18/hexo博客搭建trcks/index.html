@@ -29,7 +29,7 @@
 <meta property="og:description" content="hexo博客搭建trickstricks 之文章插入图片​    当我们写 markdown 文章的时候，为了后期可移植性考虑，我们希望插入图片的时候用相对路径。那么当这篇文章需要发布到博客时，该怎么做呢？很简单，只需要在hexo 的[^1]配置文件 _config.yml 做如下设置。 1post_asset_folder: true  ​        将 _config.yml 文件中的配置">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-18T13:15:46.000Z">
-<meta property="article:modified_time" content="2020-03-19T04:01:24.098Z">
+<meta property="article:modified_time" content="2020-03-19T09:36:38.898Z">
 <meta property="article:author" content="3me">
 <meta property="article:tag" content="wode">
 <meta name="twitter:card" content="summary">
@@ -172,7 +172,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#hexo博客搭建tricks"><span class="post-toc-number">1.</span> <span class="post-toc-text">hexo博客搭建tricks</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tricks-之文章插入图片"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">tricks 之文章插入图片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tricks-之文章添加分类-amp-amp-tags"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">tricks 之文章添加分类 &amp;&amp; tags</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#hexo博客搭建tricks"><span class="post-toc-number">1.</span> <span class="post-toc-text">hexo博客搭建tricks</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tricks-之文章插入图片"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">tricks 之文章插入图片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tricks-之文章添加分类-amp-amp-tags"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">tricks 之文章添加分类 &amp;&amp; tags</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tricks-之引入-mermaid支持"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">tricks 之引入 mermaid支持</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -239,8 +239,32 @@
 
 <p>这样我们使用<code>hexo new post [title]</code>创建文章的时候，只需要在 <code>categories</code> 中填写内容就可以了。</p>
 </li>
+</ol>
+<h2 id="tricks-之引入-mermaid支持"><a href="#tricks-之引入-mermaid支持" class="headerlink" title="tricks 之引入 mermaid支持"></a>tricks 之引入 <code>mermaid</code>支持</h2><p>​    用 <code>markdown</code>写文章，最吸引人的部分就是可以用 <code>mermaid</code>画各种时序图，状态图，甘特图了，因此我们需要在 <code>HEXO</code> 中引入 <code>mearmaid</code> 的支持。可以按照下面的步骤做 :</p>
+<ol>
+<li><p>首先需要安装 <code>mermaid</code> 模块 :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -s hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
+
+<p>上面两个命令我在 <code>ubuntu18.04</code> 上面都没有执行成功。</p>
+<p><code>npm install</code> 报下面的错误 :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm WARN optional Skipping failed optional dependency /chokidar/fsevents:</span><br><span class="line">npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.0.6</span><br><span class="line">npm WARN optional Skipping failed optional dependency /grunt-riot/chokidar/fsevents:</span><br><span class="line">npm WARN notsup Not compatible with your operating system or architecture: fsevents@0.3.8</span><br></pre></td></tr></table></figure>
+
+<p>好像是依赖性的错误，估计解决起来比较麻烦，先不管，试试用 <code>yarn add</code> 安装。很不幸， <code>yarn add</code>报下面的错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: [Errno 2] No such file or directory: <span class="string">'add'</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Google</code>下，好像是 <code>ubuntu</code>镜像源安装的  <code>yarn</code>版本太低，可以用下面的方法解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Install Yarn <span class="keyword">for</span> Ubuntu 18.04 LTS reference to link: https://qiita.com/shaching/items/a1e8bf937f1ad049b8cd</span><br><span class="line">It works <span class="keyword">for</span> me!</span><br><span class="line">Step 1: Configure the repository</span><br><span class="line">$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"deb https://dl.yarnpkg.com/debian/ stable main"</span> | sudo tee /etc/apt/sources.list.d/yarn.list</span><br><span class="line">Step 2: Install Yarn</span><br><span class="line">$ sudo apt-get update &amp;&amp; sudo apt-get install --no-install-recommends yarn</span><br><span class="line">Step 3: Verify</span><br><span class="line">$ yarn -v</span><br><span class="line">show 1.9.4</span><br></pre></td></tr></table></figure>
+
+<p>好了，脚本安装成功。</p>
+</li>
 <li></li>
 </ol>
+<p>3.</p>
+<p>4.</p>
+<p>5.</p>
 
         </div>
 
@@ -249,7 +273,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-03-19T04:01:24.098Z" itemprop="dateUpdated">2020-03-19 04:01:24</time>
+    Last updated: <time datetime="2020-03-19T09:36:38.898Z" itemprop="dateUpdated">2020-03-19 09:36:38</time>
 </span><br>
 
 
