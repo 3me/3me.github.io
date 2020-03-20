@@ -40,7 +40,17 @@
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+	<script>window.lazyScripts=[]</script>
+	<script>
+	(function(){
+	if('{{ page.password }}'){
+	if (prompt('请输入文章密码') !== '{{ page.password}}'){
+	alert('密码错误！');
+	history.back();
+	}
+	}
+	})();
+	</script>
 
     <!-- custom head -->
     
@@ -379,7 +389,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/20/name/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">name</h4>
+      </a>
+    </div>
   
 
   
