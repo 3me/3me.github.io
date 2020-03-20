@@ -43,8 +43,8 @@
 	<script>window.lazyScripts=[]</script>
 	<script>
 	(function(){
-	if('{{ page.password }}'){
-	if (prompt('请输入文章密码') !== '{{ page.password}}'){
+	if('{{ post.password }}'){
+	if (prompt('请输入文章密码') !== '{{ post.password}}'){
 	alert('密码错误！');
 	history.back();
 	}
